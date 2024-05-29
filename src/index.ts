@@ -1,5 +1,5 @@
 import type { UnwrapRef } from 'vue'
-import { getCurrentInstance, onScopeDispose, readonly, ref, toRefs } from 'vue'
+import { getCurrentInstance, onScopeDispose, readonly, ref } from 'vue'
 import { toReactive } from '@vueuse/core'
 
 import type {
@@ -55,7 +55,7 @@ export function useStore<TState extends object, StateSlice>(
     })
   }
 
-  return isPrimitive(state.value) ? readonly(state) : toRefs(toReactive(state))
+  return isPrimitive(state.value) ? readonly(state) : toReactive(state)
 }
 
 export type UseBoundStore<S extends StoreApi<unknown>> = {
