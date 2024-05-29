@@ -1,8 +1,8 @@
 import { StoreApi, StoreMutatorIdentifier, StateCreator, Mutate } from 'zustand/vanilla';
-import { Ref, ToRefs } from 'vue';
+import { Ref, UnwrapNestedRefs } from 'vue';
 
 type Primitive = null | undefined | string | number | boolean | symbol | bigint;
-type IsPrimitive<T> = T extends Primitive ? Ref<T> : ToRefs<T>;
+type IsPrimitive<T> = T extends Primitive ? Ref<T> : UnwrapNestedRefs<T>;
 
 type ExtractState<S> = S extends {
     getState: () => infer T;

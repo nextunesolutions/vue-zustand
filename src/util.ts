@@ -1,4 +1,4 @@
-import type { Ref, ToRefs } from 'vue'
+import type { Ref, UnwrapNestedRefs } from 'vue'
 
 export function isPrimitive<T>(val: T): boolean {
   if (typeof val === 'object')
@@ -9,4 +9,4 @@ export function isPrimitive<T>(val: T): boolean {
 
 type Primitive = null | undefined | string | number | boolean | symbol | bigint
 
-export type IsPrimitive<T> = T extends Primitive ? Ref<T> : ToRefs<T>
+export type IsPrimitive<T> = T extends Primitive ? Ref<T> : UnwrapNestedRefs<T>
